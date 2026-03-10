@@ -16,9 +16,11 @@ class BaseModel(models.Model):
 
 
     class Meta:
-
         abstract = True
+
+
 # Create your models here.
+
 
 User = get_user_model()
 
@@ -99,7 +101,6 @@ class Post(BaseModel):
         return self.title
 
     class Meta:
-        verbose_name = 'публикация'
-        verbose_name_plural = 'Публикации'
+        verbose_name='публикация'
+        verbose_name_plural ='Публикации'
         ordering = ['-pub_date']
-        
