@@ -3,6 +3,7 @@ from .models import Category, Post, Location
 
 admin.site.empty_value_display = 'Не задано'
 
+
 class PostAdmin(admin.ModelAdmin):
     list_display = (
         'title',

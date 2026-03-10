@@ -1,24 +1,28 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-#from pages.models import BaseModel
 import datetime
-User = get_user_model()
 
 
 class BaseModel(models.Model):
     is_published=models.BooleanField(
         default=True, 
-        verbose_name='Опубликовано',
-        help_text='Снимите галочку, чтобы скрыть публикацию.'
+        verbose_name = 'Опубликовано',
+        help_text = 'Снимите галочку, чтобы скрыть публикацию.'
     )
     created_at = models.DateTimeField(
         'Добавлено',
         auto_now_add=True
     )
-    
+
+
     class Meta:
         abstract = True
 # Create your models here.
+
+
+User = get_user_model()
+
+
 class Category(BaseModel):
     title = models.CharField(
         'Заголовок',
@@ -93,7 +97,8 @@ class Post(BaseModel):
 
     def str(self):
         return self.title
-
+    
+    
     class Meta:
         verbose_name = 'публикация'
         verbose_name_plural = 'Публикации'
