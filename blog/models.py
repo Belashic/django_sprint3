@@ -4,10 +4,10 @@ import datetime
 
 
 class BaseModel(models.Model):
-    is_published=models.BooleanField(
-        default=True, 
-        verbose_name = 'Опубликовано',
-        help_text = 'Снимите галочку, чтобы скрыть публикацию.'
+    is_published = models.BooleanField(
+        default=True,
+        verbose_name='Опубликовано',
+        help_text='Снимите галочку, чтобы скрыть публикацию.'
     )
     created_at = models.DateTimeField(
         'Добавлено',
@@ -16,6 +16,7 @@ class BaseModel(models.Model):
 
 
     class Meta:
+
         abstract = True
 # Create your models here.
 
@@ -97,9 +98,11 @@ class Post(BaseModel):
 
     def str(self):
         return self.title
-    
-    
+
+
     class Meta:
+
         verbose_name = 'публикация'
+        
         verbose_name_plural = 'Публикации'
         ordering = ['-pub_date']
